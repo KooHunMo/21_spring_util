@@ -58,25 +58,44 @@
  -->
  
 <tiles-definitions>
- 										<!-- 문법: WEB-INF 부터 경로쓰면됨-->
+ 	
  	<definition name="default" template="/WEB-INF/views/tiles/layout.jsp"> <!-- 화면 레이아웃 -->
  		<put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp"/>   <!-- 화면 상단부(검색,로그인,로그아웃,고객센터,등등..) -->
  		<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp"/>   <!-- 화면 하단부(기업정보,협력사정보,등등..) -->
  		<put-attribute name="side"   value="/WEB-INF/views/tiles/side.jsp"/>	   <!-- 화면 메뉴 -->
  	</definition>
  
- 	<definition name="tiles/content1" extends="default">
- 		<put-attribute name="content" value="/WEB-INF/views/tiles/content1.jsp"/>
- 	</definition>
+ 	<!-- 
+	 	<definition name="tiles/content1" extends="default">
+	 		<put-attribute name="content" value="/WEB-INF/views/tiles/content1.jsp"/>
+	 		<put-attribute name="title" value="content1"/>
+	 	</definition>
+	 
+	 	<definition name="tiles/content2" extends="default">
+	 		<put-attribute name="content" value="/WEB-INF/views/tiles/content2.jsp"/>
+	 		<put-attribute name="title" value="content2"/>
+	 	</definition>
+	 	
+	 	<definition name="tiles/content3" extends="default">
+	 		<put-attribute name="content" value="/WEB-INF/views/tiles/content3.jsp"/>
+	 		<put-attribute name="title" value="content1"/>
+	 	</definition>
+ 	 -->
  
- 	<definition name="tiles/content2" extends="default">
- 		<put-attribute name="content" value="/WEB-INF/views/tiles/content2.jsp"/>
- 	</definition>
- 	
- 	<definition name="tiles/content3" extends="default">
- 		<put-attribute name="content" value="/WEB-INF/views/tiles/content3.jsp"/>
- 	</definition>
- 
+ 	<!-- 
+	
+		* (wildcard)로 definition과 controller의 패턴을 매칭할 수 있으며
+		
+		첫번째 * 는 {1}
+		두번째 * 는 {2}
+		세번째 * 는 {3}과 같은 규칙으로 매칭할수 있다.
+	
+	 -->
+	 
+	 <definition name="tiles/*" extends="default">
+	 	<put-attribute name="content" value="/WEB-INF/views/tiles/{1}.jsp"/>
+	 	<put-attribute name="title"   value="{1}"/>
+	 </definition>
  
  </tiles-definitions>
  
