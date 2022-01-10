@@ -16,7 +16,7 @@ public class TilesController {
 	
 	@RequestMapping(value="/content2" , method=RequestMethod.GET)
 	public String content2() {
-		return "tiles/content2"; // tiles definition의 name과 바인딩
+		return "tiles/content2"; // tiles definitSDion의 name과 바인딩
 	}
 	
 	@RequestMapping(value="/content3" , method=RequestMethod.GET)
